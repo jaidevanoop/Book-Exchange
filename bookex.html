@@ -19,7 +19,7 @@
             <p>Contact information: </p>
             <p>13CO124</p>
             <p>7204688232</p>
-            <p><a href="mailto:jaidev.anoop@gmail.com">jaidev.anoop@gmail.com</a>.</p>
+            <p><a href="mailto:jaidev.anoop@gmail.com">jaidev.anoop@gmail.com</a></p>
           </div>
         </div>
         <div class="col-md-6 ">
@@ -28,7 +28,7 @@
               <p>Contact information: </p>
               <p>13CO125</p>
               <p>8050250001</p>
-              <p><a href="mailto:jai1396@gmail.com">jai1396@gmail.com</a>.</p>
+              <p><a href="mailto:jai1396@gmail.com">jai1396@gmail.com</a></p>
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Book Exchange</a>
+        <a class="navbar-brand" href="{{pathFor 'main'}}">Book Exchange</a>
       </div>
       <div>
         <ul class="nav navbar-nav">
@@ -72,8 +72,12 @@
 <template name="main">
   <div class="jumbotron">
     <div class="container">
-      <h1>Book Exchange</h1>
-      <p>Find a book: Buy or rent it from our store.</p>
+    <div class="needsVis">
+    	<center>
+    		<h1>Book Exchange</h1>
+     		<p>Find a book: Buy it from our store.</p>
+     	</center>
+    </div>
       <!--<a href="#">Learn More</a>-->
     </div>
   </div>
@@ -362,20 +366,8 @@
           <input type="text" name="search" class="form-control"></div>
           <div class="col-md-2">
           <input type="submit" class="btn btn-primary btn-block" value="Search">
-        </div>
-         <label>
-          <input type="checkbox" class="toogle-author" value="author">
-          Author
-        </label>
-        <label>
-          <input type="checkbox" class="toogle-publisher" value="publisher">
-          Publisher
-        </label>
-
+          </div>
       </form>
-     
-      
-
       </div>
 
     
