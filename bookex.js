@@ -153,12 +153,12 @@ if (Meteor.isClient) {
 		}
 	});
 	Template.navbar.helpers({
-		user: function(){
+		'user': function(){
 			var profile = Profiles.findOne({user: Meteor.userId()});
 			Session.set("username",profile.email);
 			return profile.email;
 		},
-		cartCount: function(){
+		'cartCount': function(){
 			return Session.get("cartCount");
 		}
 	});
@@ -167,13 +167,37 @@ if (Meteor.isClient) {
 		'books': function(){
 
 			var bookname = Session.get("bookname");
-			var booksObject = Books.find({name: bookname});
+			//console.log(new RegExp(bookname));
+			var options = Session.get("options");
+			var exp = [];
+			var test = { $regex : new RegExp(bookname), $options: 'i'};
+			options.forEach(function(array){
+				if(array=="name"){
+					exp.push({name: test});
+				}
+				else if(array=="author"){
+					exp.push({author: test});
+				}
+				else{
+					exp.push({publisher: test});
+				}
+
+			});
+
+			console.log(exp);
+			
+			/*var f = JSON.parse(e);
+			console.log(f);*/
+
+
+			var booksObject = Books.find({ $or: exp });
 			if(booksObject.count()==0) {
 				Session.set("query",false);
 				window.alert("Book does not exist in the database");
 			}
 			//console.log(booksObject);
 			return booksObject;
+			
 		}
 	});
 
@@ -275,12 +299,29 @@ if (Meteor.isClient) {
 	});
 
 	Template.searchbar.events({
-		'submit form': function(event){
+		'submit form': function(event,template){
 			event.preventDefault();
 
 			var bookname = event.target.search.value;
+			//bookname = "/" + bookname + "/";
 			Session.set("bookname",bookname);
 			Session.set("query",true);
+
+			var selected = template.findAll( "input[type=checkbox]:checked");
+
+   			var array2 = _.map(selected, function(item) {
+     			return item.defaultValue;
+   			});
+
+   			var array = [];
+   			array.push("name");
+   			array2.forEach(function(element){
+   				array.push(element);
+   			});
+
+   			Session.set("options",array);
+   			//console.log(array2);
+   			//console.log(array);
 			//Router.go("/buy");
 		}
 	});
