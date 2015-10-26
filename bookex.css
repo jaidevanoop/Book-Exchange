@@ -1,0 +1,120 @@
+/* CSS declarations go here */
+.nav {
+  background-color: #f7f7f7;
+}
+
+.nav a {
+  color: #5a5a5a;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 14px 25px;
+  text-transform: uppercase;
+}
+
+.nav li {
+  display: inline;
+}
+
+.jumbotron {
+  background-image:url('images/books.jpg');
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron .container {
+  position: relative;
+  top: 100px;
+}
+
+.jumbotron h1 {
+  color: #022;
+  font-size: 58px;  
+  font-family: 'Shift', sans-serif;
+  font-weight: bold;
+}
+
+.jumbotron p {
+  font-size: 20px;
+  color: #fff;
+}
+
+.learn-more {
+  background-color: #f7f7f7;
+}
+
+.learn-more h3 {
+  font-family: 'Shift', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.learn-more h4 {
+  font-family: 'Shift', sans-serif;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.learn-more a {
+  color: #00b0ff;
+}
+
+.selected {
+background-color: #a9a9a9;
+}
+
+/*#footer{
+
+        bottom: -50px;
+        height: 50px;
+        left: 0;
+        position: absolute;
+        right: 0;
+       }*/
+
+.delete {
+      float: right;
+      font-weight: bold;
+      background: #DE4F4F;
+      color: #FFF;
+      font-size: 1em;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;;
+    }
+
+.profile dt {
+  float: left;
+  width: 200px;
+  text-align: right;
+  font-size: 18px;
+}
+
+.profile dd {
+  margin-left: 215px;
+  font-size: 18px;
+}
+
+/** {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+/*.footer, .push {
+    height: 155px; /* .push must be the same height as .footer *//*
+}
+
+<div class="wrapper">
+  <p>Your website content here.</p>
+  <div class="push"></div>
+ </div>
+ <div class="footer">
+   <p>Copyright (c) 2008</p>
+ </div>*/

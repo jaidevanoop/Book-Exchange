@@ -1,0 +1,421 @@
+<head>
+  <title>Book Exchange</title>
+</head>
+
+<body>
+  {{>navbar}}
+  <!--{{renderPage}}-->
+</body>
+
+<template name="footer">
+<div id="footer">
+  <div class="learn-more">
+    <div class="container">
+      <div class="row">
+        <h4 align="center">Created by:</h4>
+        <div class="col-md-6">
+          <div class="text-left">
+            <h3>Jaidev Anoop</h3>
+            <p>Contact information: </p>
+            <p>13CO124</p>
+            <p>7204688232</p>
+            <p><a href="mailto:jaidev.anoop@gmail.com">jaidev.anoop@gmail.com</a>.</p>
+          </div>
+        </div>
+        <div class="col-md-6 ">
+          <div class="text-right">
+            <h3>Jaitirth A Jacob</h3>
+              <p>Contact information: </p>
+              <p>13CO125</p>
+              <p>8050250001</p>
+              <p><a href="mailto:jai1396@gmail.com">jai1396@gmail.com</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</template>
+
+  
+<template name="navbar">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Book Exchange</a>
+      </div>
+      <div>
+        <ul class="nav navbar-nav">
+          <li><a href="{{pathFor 'main'}}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+          {{#if currentUser}}
+            <li><a href="{{pathFor 'cart'}}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart {{#if cartCount}}<span class="badge">{{cartCount}}</span>{{/if}}</a></li>
+            <li><a href="{{pathFor 'sell'}}"><span class="glyphicon glyphicon-export"></span> Sell</a></li>
+          {{/if}}
+          <li><a href="{{pathFor 'help'}}"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {{#if currentUser}}
+            <li><a href="{{pathFor 'profile'}}"><span class="glyphicon glyphicon-user"></span> {{user}}</a></li>
+            <li><a href="{{pathFor 'main'}}" class="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          {{else}}
+            <li><a href="{{pathFor 'signup'}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="{{pathFor 'login'}}"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</template>
+
+
+
+<template name="main">
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Book Exchange</h1>
+      <p>Find a book: Buy or rent it from our store.</p>
+      <!--<a href="#">Learn More</a>-->
+    </div>
+  </div>
+  {{#if currentUser}}
+    {{>searchbar}}
+  {{/if}}
+  {{>footer}}
+</template>
+
+<template name="signup">
+  <div class="container">
+    <div class="col-md-4">
+      <h3 align="right">Sign up</h3>
+    </div>
+    <div class="col-md-8">
+      <form>
+        <input type="text" id="signup-email" placeholder="Email"><br>
+        <input type="password" id="signup-password" placeholder="Password"><br>
+        <input type="submit" class="btn btn-primary" value="Sign up">
+      </form>
+    </div>
+  </div>
+  {{>footer}}
+</template>
+
+  <template name="login">
+   
+    <div class="container">
+  
+      <div class="col-md-4">
+       <h3 align="right">Login</h3>
+      </div>
+      <div class="col-md-8">
+         <form>
+          <input type="text" id="login-email" placeholder="Email"><br>
+          <input type="password" id="login-password" placeholder="Password"><br>
+          <input type="submit" class="btn btn-primary" value="Login">
+        </form>
+      </div>
+    </div>
+    {{>footer}}
+  </template>
+
+<template name="sell">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" align="center">
+        <h1>Book Info</h1>
+      </div>
+    </div>
+    <div class="row">
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="name">Name:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="author">Author:</label>
+          <div class="col-sm-10">          
+            <input type="text" class="form-control" id="author">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="publisher">Publisher:</label>
+          <div class="col-sm-10">          
+            <input type="text" class="form-control" id="publisher">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="edition">Edition:</label>
+          <div class="col-sm-10">          
+            <input type="text" class="form-control" id="edition">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="price">Price:</label>
+          <div class="col-sm-10">          
+            <input type="text" class="form-control" id="price">
+          </div>
+        </div>
+        <div class="form-group">        
+          <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-primary" value="Sell">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  {{>footer}}
+</template>
+
+  <template name="cart">
+    
+    <div class="container">
+  <h2>Books in cart</h2>           
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Publisher</th>
+        <th>Edition</th>
+        <th>Price</th>
+                
+      </tr>
+    </thead>
+    <tbody>
+    {{#each cart}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{publisher}}</td>
+        <td>{{edition}}</td>
+        <td>{{price}}</td>
+        <button class="delete">&times;</button>
+
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class="confirm"><button type="button" class="btn btn-success btn-block">Confirm</button></div>
+
+</div>
+   
+
+
+    {{>footer}}
+  
+  </template>
+
+<template name="profile">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" align="center">
+        <h1>Profile</h1>
+      </div>
+    </div>
+    <div class="row">
+      {{#if profileExists}}  
+        <div class="row">  
+          <div class="profile col-md-5">
+            <div class="panel-group">
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h3>Person Info</h3>
+                </div>
+                <div class="panel-body">
+                  <dl>
+                    <dt>Name</dt>
+                    <dd>{{profileExists.name}}</dd>
+                    <dt>Phone Number</dt>
+                    <dd>{{profileExists.phno}}</dd>
+                    <dt>Address</dt>
+                    <dd>{{profileExists.address}}</dd>
+                    <dt>Username/Email</dt>
+                    <dd>{{profileExists.email}}</dd>
+                  </dl>
+                </div>
+                <div class="panel-footer">
+                  {{#if updateForm}}
+                    <button class="btn btn-warning" id="cancel">Cancel</button>
+                  {{else}}
+                    <button class="btn btn-info" id="update">Update</button>
+                  {{/if}}
+                </div>
+              </div>
+            </div>
+          </div>
+          {{#if updateForm}}
+            <div class="col-md-7">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4>Update form</h4>
+                  </div>
+                <div class="panel-body">  
+                  <form class="form-horizontal update-form" role="form">
+                    <div class="form-group">
+                      <label class="control-label col-sm-3" for="update-name">Name:</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="update-name">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-3" for="update-phno">Phone number:</label>
+                      <div class="col-sm-9">          
+                        <input type="text" class="form-control" id="update-phno">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-3" for="update-address">Address:</label>
+                      <div class="col-sm-9">          
+                        <input type="text" class="form-control" id="update-address">
+                      </div>
+                    </div>
+                    <div class="form-group">        
+                      <div class="col-sm-offset-3 col-sm-9">
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                      </div>
+                    </div>
+                  </form>
+                </div> 
+              </div>
+            </div>
+          {{/if}}  
+        </div>
+      {{else}}
+        <form class="form-horizontal first-form" role="form">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="name">Name:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="phno">Phone number:</label>
+            <div class="col-sm-10">          
+              <input type="text" class="form-control" id="phno">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="address">Address:</label>
+            <div class="col-sm-10">          
+              <input type="text" class="form-control" id="address">
+            </div>
+          </div>
+        
+          <div class="form-group">        
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" class="btn btn-primary" value="Submit">
+            </div>
+          </div>
+        </form>
+      {{/if}}  
+    </div>
+    {{#if collection}}
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Collection Info</h4>
+          </div>
+        <div class="panel-body">  
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Book Name</th>
+                <th>Price</th>
+                <th>Owner</th>
+                <th>Phone Number</th>
+                
+            
+                        
+              </tr>
+            </thead>
+            <tbody>
+            {{#each pickup}}
+              <tr>
+                <td>{{name}}</td>
+                <td>{{price}}</td>
+                <td>{{owner}}</td>
+                <td>{{phno}}</td>
+                <td><button class="btn btn-success btn-block" id="receivedPickup">Received</button></td>
+                <td><button class="btn btn-danger btn-block" id="cancelPickup">Cancel</button></td>
+
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div> 
+      </div>
+
+    </div>
+    {{/if}}
+  </div>
+
+    
+  {{>footer}}
+</template>
+
+  <template name="searchbar">
+    <div class="container">  
+      <h2>Search</h2>
+      <form>
+        <div class="col-md-10">
+          <input type="text" name="search" class="form-control"></div>
+          <div class="col-md-2">
+          <input type="submit" class="btn btn-primary btn-block" value="Search">
+          </div>
+      </form>
+      </div>
+
+    
+    {{#if query}}
+      {{>availablebooks}}
+    {{/if}}
+
+  
+  </template>
+
+  <template name="availablebooks">
+    <div class="container">
+  <h2>Available Books</h2>           
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Publisher</th>
+        <th>Edition</th>
+        <th>Price</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+    {{#each books}}
+      <tr class="addtocart {{#if chosen}}bg-info{{/if}}">
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{publisher}}</td>
+        <td>{{edition}}</td>
+        <td>{{price}}</td>
+
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <div class="col-md-6">
+
+  <div class="cart"><button type="button" class="btn btn-success btn-block">Add to cart</button></div></div>
+  <div class="col-md-6">
+  <div class="reset"><button type="button" class="btn btn-danger btn-block">Reset</button></div>
+  </div>
+
+  </div>
+  </template>
+
+
+<template name="help">
+  <div class="container"> 
+    How to use the site... Will update soon.
+  </div>
+  {{>footer}}
+</template>
