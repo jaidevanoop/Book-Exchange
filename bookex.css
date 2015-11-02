@@ -6,9 +6,6 @@
 
 .navbar {
 	margin: 0;
-	position: fixed;
-	width: 100%;
-	z-index: 443;
 }
 
 .navbar-brand {
@@ -46,8 +43,6 @@
   font-size: 58px;  
   font-family: 'Shift', sans-serif;
   font-weight: bold;
-  position: relative;
-  z-index: 440;
 }
 
 .jumbotron p {
