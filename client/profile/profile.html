@@ -1,0 +1,140 @@
+<template name="profile">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" align="center">
+        <h1>Profile</h1>
+      </div>
+    </div>
+    <div class="row">
+      {{#if profileExists}}  
+        <div class="row">  
+          <div class="profile col-md-5">
+            <div class="panel-group">
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h3>Person Info</h3>
+                </div>
+                <div class="panel-body">
+                  <dl>
+                    <dt>Name</dt>
+                    <dd>{{profileExists.name}}</dd>
+                    <dt>Phone Number</dt>
+                    <dd>{{profileExists.phno}}</dd>
+                    <dt>Address</dt>
+                    <dd>{{profileExists.address}}</dd>
+                    <dt>Username/Email</dt>
+                    <dd>{{profileExists.email}}</dd>
+                  </dl>
+                </div>
+                <div class="panel-footer">
+                  {{#if updateForm}}
+                    <button class="btn btn-warning" id="cancel">Cancel</button>
+                  {{else}}
+                    <button class="btn btn-info" id="update">Update</button>
+                  {{/if}}
+                </div>
+              </div>
+            </div>
+          </div>
+          {{#if updateForm}}
+            <div class="col-md-7">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4>Update form</h4>
+                  </div>
+                <div class="panel-body">  
+                  <form class="form-horizontal update-form" role="form">
+                    <div class="form-group">
+                      <label class="control-label col-sm-3" for="update-name">Name:</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="update-name">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-3" for="update-phno">Phone number:</label>
+                      <div class="col-sm-9">          
+                        <input type="text" class="form-control" id="update-phno">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-3" for="update-address">Address:</label>
+                      <div class="col-sm-9">          
+                        <input type="text" class="form-control" id="update-address">
+                      </div>
+                    </div>
+                    <div class="form-group">        
+                      <div class="col-sm-offset-3 col-sm-9">
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                      </div>
+                    </div>
+                  </form>
+                </div> 
+              </div>
+            </div>
+          {{/if}}  
+        </div>
+      {{else}}
+        <form class="form-horizontal first-form" role="form">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="name">Name:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="phno">Phone number:</label>
+            <div class="col-sm-10">          
+              <input type="text" class="form-control" id="phno">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="address">Address:</label>
+            <div class="col-sm-10">          
+              <input type="text" class="form-control" id="address">
+            </div>
+          </div>
+        
+          <div class="form-group">        
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" class="btn btn-primary" value="Submit">
+            </div>
+          </div>
+        </form>
+      {{/if}}  
+    </div>
+    {{#if collection}}
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4>Collection Info</h4>
+            </div>
+          <div class="panel-body">  
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Book Name</th>
+                  <th>Price</th>
+                  <th>Owner</th>
+                  <th>Phone Number</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each pickup}}
+                  <tr>
+                    <td>{{name}}</td>
+                    <td>{{price}}</td>
+                    <td>{{owner}}</td>
+                    <td>{{phno}}</td>
+                    <td><button class="btn btn-success btn-block" id="receivedPickup">Received</button></td>
+                    <td><button class="btn btn-danger btn-block" id="cancelPickup">Cancel</button></td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div> 
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</template>
+

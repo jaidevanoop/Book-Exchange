@@ -1,0 +1,31 @@
+<template name="cart">
+  <div class="container">
+    <h2>Books in cart</h2>           
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Author</th>
+          <th>Publisher</th>
+          <th>Edition</th>
+          <th>Price</th>
+                  
+        </tr>
+      </thead>
+      <tbody>
+      {{#each cart}}
+        <tr>
+          <td>{{name}}</td>
+          <td>{{author}}</td>
+          <td>{{publisher}}</td>
+          <td>{{edition}}</td>
+          <td>{{price}}</td>
+          <button class="delete">&times;</button>
+
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <div class="confirm"><button type="button" class="btn btn-success btn-block">Confirm</button></div>
+  </div>
+</template>

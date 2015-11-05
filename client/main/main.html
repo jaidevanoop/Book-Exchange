@@ -1,0 +1,15 @@
+<template name="main">
+  <div class="jumbotron">
+    <div class="container">
+      <div class="needsVis">
+      	<center>
+      		<h1>Book Exchange</h1>
+       		<p>Find a book: Buy it from our store.</p>
+       	</center>
+      </div>
+    </div>    
+  </div>
+  {{#if currentUser}}
+    {{>searchbar}}
+  {{/if}}
+</template>

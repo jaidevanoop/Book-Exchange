@@ -1,0 +1,24 @@
+<template name="searchbar">
+  <div class="container">  
+    <h2>Search</h2>
+    <form>
+      <div class="col-md-10">
+        <input type="text" name="search" class="form-control">
+      </div>
+       <div class="col-md-2">
+        <input type="submit" class="btn btn-primary btn-block" value="Search">
+      </div>
+      <label>
+        <input type="checkbox" class="toogle-author" value="author">
+        Author
+      </label>
+      <label>
+        <input type="checkbox" class="toogle-publisher" value="publisher">
+        Publisher
+      </label>
+    </form>
+  </div>    
+  {{#if query}}
+    {{>availablebooks}}
+  {{/if}}
+</template>

@@ -1,0 +1,28 @@
+<template name="navbar">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{{pathFor 'main'}}">Book Exchange</a>
+      </div>
+      <div>
+        <ul class="nav navbar-nav">
+          <li><a href="{{pathFor 'main'}}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+          {{#if currentUser}}
+            <li><a href="{{pathFor 'cart'}}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart {{#if cartCount}}<span class="badge">{{cartCount}}</span>{{/if}}</a></li>
+            <li><a href="{{pathFor 'sell'}}"><span class="glyphicon glyphicon-export"></span> Sell</a></li>
+          {{/if}}
+          <li><a href="{{pathFor 'help'}}"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {{#if currentUser}}
+            <li><a href="{{pathFor 'profile'}}"><span class="glyphicon glyphicon-user"></span> {{user}}</a></li>
+            <li><a href="{{pathFor 'main'}}" class="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          {{else}}
+            <li><a href="{{pathFor 'signup'}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="{{pathFor 'login'}}"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</template>
