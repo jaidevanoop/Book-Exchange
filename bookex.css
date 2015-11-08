@@ -121,7 +121,7 @@ background-color: #a9a9a9;
   font-size: 18px;
 }
 
-/** {
+* {
     margin: 0;
 }
 html, body {
@@ -131,16 +131,9 @@ html, body {
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+    margin: 0 auto -265px; /* the bottom margin is the negative value of the footer's height */
 }
-/*.footer, .push {
-    height: 155px; /* .push must be the same height as .footer *//*
+.footer, .push {
+    height: 265px; /* .push must be the same height as .footer */
 }
 
-<div class="wrapper">
-  <p>Your website content here.</p>
-  <div class="push"></div>
- </div>
- <div class="footer">
-   <p>Copyright (c) 2008</p>
- </div>*/
