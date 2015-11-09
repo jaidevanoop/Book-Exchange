@@ -1,0 +1,32 @@
+.help_image {
+	background-image: url('images/helpyguy.jpg');
+	height: 500px;
+	background-repeat: no-repeat;
+	background-size: cover;	
+	padding: 0;
+}
+
+.black_line {
+	background-color: #F1F1F1;
+	height: 500px;
+	width: 10px;
+}
+
+.help-container {
+	background: #0066CC;
+}
+
+.help-container .container {
+	background: white;
+	padding-right: 0px;
+}
+
+.help-container .container .col-sm-4 {
+	padding-right: 0px;
+}
+
+/*.help-container .container .vert-text {
+	transform: rotate(90deg);
+	transform-origin: left top 0;
+	float: left;
+}*/

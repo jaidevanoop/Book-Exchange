@@ -1,0 +1,27 @@
+.outside-container {
+	/*background-color: #0066CC;*/
+	background-color: brown;
+	padding: 0px;
+}
+
+.outside-container .container {
+	background-color: white;
+	padding: 0px;
+}
+
+.container h5 {
+	color: #0066CC;
+	font-family: 'Shift', sans-serif;
+}
+
+.stacked_books {
+	background-image: url('images/sell2.jpg');
+	height: 400px;
+	background-repeat: no-repeat;
+	background-size: cover;	
+	padding: 0;
+}
+
+.outside-container .container .col-sm-4 {
+	padding-right: 0px;
+}
