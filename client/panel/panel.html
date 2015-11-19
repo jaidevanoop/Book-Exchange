@@ -1,0 +1,68 @@
+<template name="panel">
+<div class="panel">
+            <div class="panel-group">
+              <div class="panel panel-info">
+                
+                <div class="panel-heading">
+                  <h3 class="adminpanel">{{name}} - {{email}} - {{address}} - {{phno}}</h3>
+                </div>
+                
+                <div class="panel-body">
+                	<h3 class="adminpanel">Books In Transaction</h3><br>
+                	<table class="table table-hover">
+							      <thead>
+							        <tr>
+							          <th>Name</th>
+							          <th>Author</th>
+							          <th>Publisher</th>
+							          <th>Edition</th>
+							          <th>Price</th>
+							                  
+							        </tr>
+							      </thead>
+							      <tbody>
+							      	{{#each bought}}
+							        <tr>
+							          <td>{{name}}</td>
+							          <td>{{author}}</td>
+							          <td>{{publisher}}</td>
+							          <td>{{edition}}</td>
+							          <td>{{price}}</td>
+							         </tr>
+							        {{/each}}
+							      </tbody>
+							    </table>
+                </div>
+                
+                <div class="panel-footer">
+                  <h3 class="adminpanel">Books To be Sold</h3><br>
+                  <table class="table table-hover">
+							      <thead>
+							        <tr>
+							          <th>Name</th>
+							          <th>Author</th>
+							          <th>Publisher</th>
+							          <th>Edition</th>
+							          <th>Price</th>
+							                  
+							        </tr>
+							      </thead>
+							      <tbody>
+							      	{{#each sold}}
+							        <tr>
+							          <td>{{name}}</td>
+							          <td>{{author}}</td>
+							          <td>{{publisher}}</td>
+							          <td>{{edition}}</td>
+							          <td>{{price}}</td>
+							        </tr>
+							        {{/each}}
+							      </tbody>
+							    </table>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+
+</template>

@@ -15,7 +15,10 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {{#if currentUser}}
-            <li><a href="{{pathFor 'profile'}}"><span class="glyphicon glyphicon-user"></span> {{user}}</a></li>
+            <li><a href="{{pathFor 'profile'}}"><span class="glyphicon glyphicon-user"></span> {{user.email}}</a></li>
+            {{#if admin}}
+              <li><a href="/admin_{{user.user}}" class="admin"><span class="glyphicon glyphicon-lock"></span> Admin</a></li>
+            {{/if}}
             <li><a href="{{pathFor 'main'}}" class="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
           {{else}}
             <li><a href="{{pathFor 'signup'}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

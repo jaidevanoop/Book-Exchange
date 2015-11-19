@@ -2,6 +2,7 @@ Router.configure({
 	layoutTemplate: 'layout'
 });
 
+
 Router.map(function(){
 	this.route('main',{path:'/'});
 	this.route('signup',{path:'/signup'});
@@ -9,7 +10,8 @@ Router.map(function(){
 	this.route('sell',{path:'/sell'});
 	this.route('cart',{path:'/cart'});
 	this.route('profile',{path:'/profile'});
-	this.route('help',{path:'/help'});
-})
+	this.route('help',{path:'/help'});	
+	this.route('admin',{path:'/admin_:adminId'});
+});
 
 

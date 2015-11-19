@@ -137,7 +137,6 @@ html, body {
     height: 265px; /* .push must be the same height as .footer */
 }
 
-.font{
-  font-weight: bold;
-  font-family: 'Shift', sans-serif;
+body {
+	background-image:url('images/background3.j');
 }
